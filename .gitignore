@@ -1,0 +1,50 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# WEB
+
+bootstrap.sh
+
+web/node_modules
+web/.pnp
+web/.pnp.js
+
+# testing
+web/coverage
+
+# production
+web/build
+
+# misc
+web/.DS_Store
+web/.env.local
+web/.env.development.local
+web/.env.test.local
+web/.env.production.local
+
+web/npm-debug.log*
+web/yarn-debug.log*
+web/yarn-error.log*
+
+# Server
+server/node_modules
+server/.pnp
+server/.pnp.js
+
+# testing
+server/coverage
+
+# production
+server/dist
+server/build
+
+server/.env
+server/.DS_Store
+server/.env.local
+server/.env.development
+server/.env.development.local
+server/.env.test.local
+server/.env.production.local
+
+server/npm-debug.log*
+server/yarn-debug.log*
+server/yarn-error.log*
