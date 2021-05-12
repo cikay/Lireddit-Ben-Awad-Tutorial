@@ -29,7 +29,7 @@ async function main() {
     migrations: [path.join(__dirname, '.migrations/*')],
     entities: [Post, User, Updoot],
   })
-  await conn.runMigrations()
+  // await conn.runMigrations()
 
   const app = express()
   const RedisStore = connectRedis(session)
