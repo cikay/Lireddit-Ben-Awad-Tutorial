@@ -18,18 +18,20 @@ import {
   VoteMutationVariables,
 } from '../generated/graphql'
 import { betterUpdateQuery } from './betterUpdateQuery'
-const errorExchange: Exchange = ({ forward }) => (ops$) => {
-  return pipe(
-    forward(ops$),
-    tap(({ error }) => {
-      if (error) {
-        if (error?.message.includes('not authenticated')) {
-          console.log('not authenticated')
+const errorExchange: Exchange =
+  ({ forward }) =>
+  (ops$) => {
+    return pipe(
+      forward(ops$),
+      tap(({ error }) => {
+        if (error) {
+          if (error?.message.includes('not authenticated')) {
+            console.log('not authenticated')
+          }
         }
-      }
-    })
-  )
-}
+      })
+    )
+  }
 
 export const cursorPagination = (cursorArgument = 'cursor'): Resolver => {
   return (_parent, fieldArgs, cache, info) => {
@@ -87,7 +89,7 @@ function invalidateAllPost(cache: Cache) {
 }
 
 const client = createClient({
-  url: 'http://localhost:4000/graphql',
+  url: process.env.REACT_APP_API_URL as string,
   fetchOptions: {
     credentials: 'include' as const,
   },
